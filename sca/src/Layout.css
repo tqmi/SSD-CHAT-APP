@@ -1,0 +1,17 @@
+.Layout{
+	width: 100%;
+	height: 100vh;
+	background-color: blue;
+	display: flex;
+	margin: 0%;
+}
+
+.Layout .col-15{
+	width: 15%;
+	background-color: #09011a;
+}
+
+.Layout .col-70{
+	background-color: brown;
+	width: 70%;
+}
