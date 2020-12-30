@@ -1,0 +1,31 @@
+body {
+  background-color: #282c34;
+}
+
+.App {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.App header {
+  background-color: #181717;
+  height: 10vh;
+  min-height: 50px;
+  color: white;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.App section {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  background-color: rgb(40, 37, 53);
+}
+
