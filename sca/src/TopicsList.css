@@ -1,0 +1,19 @@
+main {
+	padding: 10px;
+  overflow-y: scroll;
+  height: 571px;
+	display: flex;
+	flex-direction: column;
+  }
+  
+  main::-webkit-scrollbar {
+  width: 0.25rem;
+  }
+
+  main::-webkit-scrollbar-track {
+    background: #1e1e24;
+    }
+
+  main::-webkit-scrollbar-thumb {
+    background: #6649b8;
+    } 
