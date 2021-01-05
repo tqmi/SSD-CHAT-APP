@@ -22,7 +22,7 @@ function App() {
 
 
   return (<>
-    {user ? <Layout center={<ChatRoom topicID = {topic}/>} right={<TopicsList/>}}/> : <SignIn/>} 
+    {user ? <Layout center={<ChatRoom topicID = {topic}/>} right={<TopicsList/>}/> : <SignIn/>} 
     </>
   );
 }
