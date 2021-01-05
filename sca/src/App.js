@@ -15,17 +15,7 @@ function App() {
   const [user] = useAuthState(auth);
 
   return (
-    <Layout center={<div className="App">
-    <header>
-      <h1>SCA</h1>
-      <SignOut />
-    </header>
-
-    <section>
-      {user ? <ChatRoom /> : <SignIn />}
-    </section>
-
-  </div>}/>
+    <Layout center={user ? <ChatRoom topicID = 'test'/> : <SignIn />}/>
   );
 }
 
