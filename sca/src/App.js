@@ -8,6 +8,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import Layout from './Layout';
 import {SignIn,SignOut} from './Auth';
 import ChatRoom from './ChatRoom';
+import TopicsList from './TopicsList';
 
 
 function App() {
@@ -19,12 +20,12 @@ function App() {
     setTopipc('GA5IELF7WGa2IQSx64sP');
   }
 
+
   return (<>
-    {user ? <Layout center={<ChatRoom topicID = {topic}/>} left={<button onClick = {changeTopic}>change</button>}/> : <SignIn/>} 
+    {user ? <Layout center={<ChatRoom topicID = {topic}/>} right={<TopicsList/>}}/> : <SignIn/>} 
     </>
   );
 }
-
 
 
 export default App;
