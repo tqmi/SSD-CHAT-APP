@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import {firebase,auth,firestore} from './firebase';
@@ -13,9 +13,15 @@ import ChatRoom from './ChatRoom';
 function App() {
 
   const [user] = useAuthState(auth);
+  const [topic,setTopipc] = useState('test');
 
-  return (
-    <Layout center={user ? <ChatRoom topicID = 'test'/> : <SignIn />}/>
+  function changeTopic(newTopic) {
+    setTopipc('GA5IELF7WGa2IQSx64sP');
+  }
+
+  return (<>
+    {user ? <Layout center={<ChatRoom topicID = {topic}/>} left={<button onClick = {changeTopic}>change</button>}/> : <SignIn/>} 
+    </>
   );
 }
 
