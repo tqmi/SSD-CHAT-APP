@@ -16,13 +16,13 @@ function App() {
   const [user] = useAuthState(auth);
   const [topic,setTopipc] = useState('test');
 
-  function changeTopic(newTopic) {
-    setTopipc('GA5IELF7WGa2IQSx64sP');
+  function switchTopic(newTopicID) {
+    setTopipc(newTopicID);
   }
 
 
   return (<>
-    {user ? <Layout center={<ChatRoom topicID = {topic}/>} right={<TopicsList/>}/> : <SignIn/>} 
+    {user ? <Layout center={<ChatRoom topicID = {topic}/>} right={<TopicsList switchTopic={switchTopic}/>}/> : <SignIn/>} 
     </>
   );
 }
