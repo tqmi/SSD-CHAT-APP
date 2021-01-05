@@ -1,18 +1,18 @@
 import './Layout.css';
 import React, { Component } from 'react';
 
-function Layout (){
+function Layout (props){
 	
 	return (
 		<div className="Layout">
 			<div className="col-15">
-			{this.props.left}
+			{props.left}
 			</div>
 			<div className="col-70">
-			{this.props.center}
+			{props.center}
 			</div>
 			<div className="col-15">
-			{this.props.right}
+			{props.right}
 			</div>
 		</div>
 	);
