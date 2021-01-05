@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 import {firebase,auth,firestore} from './firebase';
@@ -14,34 +14,18 @@ import TopicsList from './TopicsList';
 function App() {
 
   const [user] = useAuthState(auth);
+  const [topic,setTopipc] = useState('test');
 
-  return (
-    <Layout center={<div className="App">
-    <header>
-      <h1>SCA</h1>
-      <SignOut />
-    </header>
+  function changeTopic(newTopic) {
+    setTopipc('GA5IELF7WGa2IQSx64sP');
+  }
 
-    <section>
-      {user ? <ChatRoom /> : <SignIn />}
-    </section>
 
-  </div>}
-
-    right={<div className="App">
-    <header>
-      <h1>Topics</h1>
-      
-    </header>
-
-    <body>
-      { <TopicsList /> }
-      </body>
-
-  </div>}/>
-
-  
-  )
+  return (<>
+    {user ? <Layout center={<ChatRoom topicID = {topic}/>} right={<TopicsList/>}}/> : <SignIn/>} 
+    </>
+  );
 }
+
 
 export default App;
