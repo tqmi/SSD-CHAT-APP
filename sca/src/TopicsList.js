@@ -11,16 +11,30 @@ function TopicsList(props) {
     const query = topicsRef.orderBy('name');
     const [topics] = useCollectionData(query,{idField:'id'});
 
+    
+    return (<>
+        
+        <div ClassName="topics">
+            {topics && topics.map(topic => (
+                <>
+                    <Topic key={topic.id} switchTopic={props.switchTopic} Topic={topic}/>
+                </>
+            ))}
+        </div>
+    </>)
+
+}
+
+
+
+function Topic(props) {
+
     function switchTopic(topicID){
         props.switchTopic(topicID);
     }
-
-    return (<>
-        
-        <main>
-            {topics && topics.map(topic => <button key={topic.id} onClick={()=>switchTopic(topic.id)}>{topic.name}</button>)}
-        </main>
-    </>)
+    return (
+        <button onClick={()=>switchTopic(props.Topic.id)}>{props.Topic.name}</button>
+    );
 }
 
 export default TopicsList;
