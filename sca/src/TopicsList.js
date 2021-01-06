@@ -13,6 +13,7 @@ function TopicsList(props) {
     const [topics] = useCollectionData(query,{idField:'id'});
     const [searchValue,setSearchValue] = useState('');
 
+
     const searchTopic = async(e) => {
         e.preventDefault();
         setQuery(topicsRef.where('name','==',searchValue));
@@ -20,7 +21,9 @@ function TopicsList(props) {
     }
     
     return (<>
-        
+        <header>
+		      <h1>Topics</h1>			
+		    </header>
         <div ClassName="topics">
 
         <form onSubmit={searchTopic}>
@@ -70,6 +73,7 @@ function Topic(props) {
             
             (<button onClick={()=>subscribeToTopic(props.Topic.id)}>subscribe</button>)
         }
+
     </>)
 }
 
