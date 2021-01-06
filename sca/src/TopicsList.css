@@ -1,7 +1,7 @@
 main {
 	padding: 10px;
   overflow-y: scroll;
-  height: 571px;
+  height: 100%;
   display: flex;
   margin: 0;
 	flex-direction: column;
