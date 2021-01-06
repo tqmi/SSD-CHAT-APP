@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "sca/",
+			"problemMatcher": [],
+			"label": "npm: install - sca",
+			"detail": "install dependencies from package"
+		}
+	]
+}
