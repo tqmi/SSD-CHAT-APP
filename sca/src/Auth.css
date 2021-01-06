@@ -1,6 +1,17 @@
-.sign-in {
+.signin{
+	text-align: center;
+	position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.signin button {
 	color: #282c34;
 	background: white;
 	max-width: 400px;
 	margin: 0 auto;
-  }
+}
+
+.signin p{
+	margin: auto;
+}
