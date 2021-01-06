@@ -3,11 +3,13 @@ import './ChatRoom.css'
 import React, {useRef, useState} from 'react';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import {firebase,auth,firestore} from './firebase'
+import {firebase,auth,firestore} from './firebase';
+import {SignOut} from './Auth';
 
-function ChatRoom() {
+function ChatRoom(props) {
+	
 	const dummy = useRef();
-	const messagesRef = firestore.collection('topics').doc('test').collection('messages');
+	const messagesRef = firestore.collection('topics').doc(props.topicID).collection('messages');
 	const query = messagesRef.orderBy('createdAt').limit(25);
 	const [messages] = useCollectionData(query, { idField: 'id' });
 	const [formValue, setFormValue] = useState('');
@@ -30,21 +32,29 @@ function ChatRoom() {
 	}
   
 	return (<>
-	  <main>
-  
-		{messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
-  
-		<span ref={dummy}></span>
-  
-	  </main>
-  
-	  <form onSubmit={sendMessage}>
-  
-		<input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
-  
-		<button type="submit" disabled={!formValue}>SEND</button>
-  
-	  </form>
+	<div className="App">
+		<header>
+			<h1>SCA</h1>
+			<SignOut />
+		</header>
+		<section>
+			<main>
+	
+				{messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+
+				<span ref={dummy}></span>
+
+			</main>
+
+			<form onSubmit={sendMessage}>
+
+				<input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+
+				<button type="submit" disabled={!formValue}>SEND</button>
+
+			</form>
+		</section>
+	</div>
 	</>)
 }
 

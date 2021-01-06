@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 
@@ -10,45 +10,37 @@ import Layout from './Layout';
 import { SignIn, SignOut } from './Auth';
 import ChatRoom from './ChatRoom';
 import Menu from './Menu';
+import TopicsList from './TopicsList';
+import HomePage from './HomePage';
 
 
 
 function App() {
 
   const [user] = useAuthState(auth);
+  const [topic,setTopipc] = useState('test');
+  const [mainPage,setMainPage] = useState(<HomePage switchTopic={switchTopic}/>);
+  // console.log(user.uid);
 
-  return (
-    
-<Layout center={
+  function switchTopic(newTopicID) {
+    setMainPage(<ChatRoom topicID = {newTopicID}/>);
+    setTopipc(newTopicID);
+  }
 
-      <div className="App">
-        <header>
-          <h1>SCA</h1>
-          <SignOut />
-        </header>
+  const addTopic = async() => {
+    // e.preventDefault();
+    await firestore.collection('topics').add({name:"testADD"});
+  }
 
-        <section>
-          {user ? <ChatRoom /> : <SignIn />}
-        </section>
+  const goHome = () => {
+    setMainPage(<HomePage switchTopic={switchTopic}/>);
+  }
 
-      </div>
-      
-
-
-
-    } left={  
-      <div className="App">
-        <header>
-          <h1>Menu</h1>
-        </header>
-        
-        <body>
-          { <Menu />}
-        </body>
-
-      </div>
-    } />
-    
-    );
+  return (<>
+    {user ? <Layout left={<Menu/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>} left={<button onClick={goHome}>Home</button>}/> : <SignIn/>} 
+    </>
+  );
 }
+
+
 export default App;
