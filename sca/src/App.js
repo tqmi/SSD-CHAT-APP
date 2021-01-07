@@ -19,16 +19,18 @@ import NewTopic from './NewTopic'
 function App() {
 
   const [user] = useAuthState(auth);
+  const adminRef = firestore.collection('admins');
   const [topic,setTopipc] = useState('test');
   const [mainPage,setMainPage] = useState(<HomePage switchTopic={switchTopic}/>);
-  // console.log(user.uid);
-
+  const a = user && adminRef.where('uid','==',user.uid).get();
+  const admin = a ? true : false;
+  
   function switchTopic(newTopicID) {
     setMainPage(<ChatRoom topicID = {newTopicID}/>);
     setTopipc(newTopicID);
   }
 
-  const addTopic = async() => {
+  const addTopic = () => {
     // e.preventDefault();
     setMainPage(<NewTopic/>);
   }
@@ -37,8 +39,10 @@ function App() {
     setMainPage(<HomePage switchTopic={switchTopic}/>);
   }
 
+  const MenuList = !admin ? [{name:'Home',action:goHome}] : [{name:'Home',action:goHome},{name:'new topic',action:addTopic}];
+
   return (<>
-    {user ? <Layout left={<Menu options={[{name:'Home',action:goHome},{name:'new topic',action:addTopic}]}/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>}/> : <SignIn/>} 
+    {user ? <Layout left={<Menu options={MenuList}/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>}/> : <SignIn/>} 
     </>
   );
 }

@@ -30,7 +30,7 @@ function NewTopic(props) {
 		    <h1>New Topic</h1>			
 		</header>
         <main>
-            <form onSubmit={createNewTopic}>
+            <form onSubmit={createNewTopic} className='topic-form'>
 				<label>Name :</label><input type='text' id="name" name='name' placeholder='Topic Name' value={name} onChange={(e)=>setName(e.target.value)}/>
 				<label>Description :</label><input type='text' id='desc' name='desc' placeholder='Description' value={desc} onChange={(e)=>setDesc(e.target.value)}/>
                 <button type="submit" disabled={!name}>Create</button>
