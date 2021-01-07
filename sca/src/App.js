@@ -37,7 +37,16 @@ function App() {
   }
 
   return (<>
-    {user ? <Layout left={<Menu/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>} left={<button onClick={goHome}>Home</button>}/> : <SignIn/>} 
+    {user ? 
+     <Layout 
+     left={<Menu options={[{name:'HOME', action:goHome},{name:'New topic', action:addTopic}]} />} 
+     center={mainPage} 
+     right={<TopicsList switchTopic={switchTopic}/>} 
+     /> 
+     
+     : 
+     
+     <SignIn/>} 
     </>
   );
 }
