@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 import {firebase,auth,firestore} from './firebase'
+import { SignOut } from './Auth';
 
 function AskNewTopic(props) {
 
@@ -27,15 +28,20 @@ function AskNewTopic(props) {
 
     return (<div className="App">
         <header>
-		    <h1>Ask Topic</h1>			
+		    <h1>Ask Topic</h1>
+			<h2>{auth.currentUser.displayName}</h2>
+			<SignOut/>			
 		</header>
-        <main>
-            <form onSubmit={askNewTopic} className='topic-form'>
-				<label>Name :</label><input type='text' id="name" name='name' placeholder='Topic Name' value={name} onChange={(e)=>setName(e.target.value)}/>
-				<label>Description :</label><input type='text' id='desc' name='desc' placeholder='Description' value={desc} onChange={(e)=>setDesc(e.target.value)}/>
-                <button type="submit" disabled={!name}>Create</button>
+        <section>
+			<form onSubmit={askNewTopic} className='ask-topic-form'>
+                <h1>Ask For a Topic</h1>
+				{/* <label>Name :</label> */}
+                <input type='text' id="name" name='name' placeholder='Topic Name' value={name} onChange={(e)=>setName(e.target.value)}/>
+				{/* <label>Description :</label> */}
+                <textarea type='text' id='desc' name='desc' placeholder='Description' value={desc} onChange={(e)=>setDesc(e.target.value)}/>
+                <button type="submit" disabled={!name}>Submit</button>
 			</form>
-        </main>
+        </section>
     </div>)
 }
 

@@ -1,73 +1,95 @@
-.header {
-  background-color: #181717;
-  height: 10vh;
-  min-height: 50px;
-  color: white;
-  width: 100%;
-  top: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  z-index: 99;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
 .allright {
 	padding: 10px;
-  overflow-y: scroll;
   height: 100%;
   display: flex;
   margin: 0;
-	flex-direction: column;
+  flex-direction: column;
+  background-color:  #09011a;
   }
 
-  .topicList {
-    padding: 5px;
-    overflow-y: scroll;
-    /* height: 100%; */
-    display: flex;
-    margin: 0;
-	  flex-direction: column;
-  }
+.topicList {
+  padding: 5px;
+  height: 100%;
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  overflow-y: scroll;
+}
   
-  /* .topicList::-webkit-scrollbar {
+.topicList::-webkit-scrollbar {
   width: 0.25rem;
-  }
+}
 
-  .topicList::-webkit-scrollbar-track {
-    background: #1e1e24;
-    }
+.topicList::-webkit-scrollbar-track {
+  background: #1e1e24;
+}
 
-  .topicList::-webkit-scrollbar-thumb {
-    background: #6649b8;
-    }  */
+.topicList::-webkit-scrollbar-thumb {
+  background: #6649b8;
+}  
 
-    form {
-      position: relative;
-      width: 100%;
-      height: 10%;
-      background: var(--color-brand);
-      border-radius: var(--rad);
-    }
+/* form {
+  position: relative;
+  width: 100%;
+  height: 10%;
+  background: var(--color-brand);
+  border-radius: var(--rad);
+} */
 
 
-    .topButton {
-      position: relative;
-      padding: 10px;
-      width: 80%;
-    }
+.topButton {
+  width: 80%;
+  /* height : 100%; */
+  background-color: #282c34;
+	border: none;
+	color: white;
+	padding: 15px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+	font-size: 1.25rem;
+}
 
-    .topButton1 {
-      position: relative;
-      padding: 10px;
-      width: 20%;
-      align-content: center;
-      
-    }
+.subscribeButton {
+  padding: 10px;
+  width: 20%;
+  align-content: center;
+  /* height: 100%; */
+  
+}
 
-    img {
-      position: block;
-      height: 110%;
-      width: 110%;
-    }
+.topicButtonGroup{
+  display: flex;
+  margin-bottom: 3px;
+}
+
+.subscribed-icon{
+  color: #f0ec08;
+  opacity: 100%;
+}
+
+.unsubscribed-icon{
+  color : black;
+  opacity: 50%;
+}
+
+.topic-search-bar{
+  width: 80%;
+}
+
+.topic-search-button{
+  width: 20%;
+  height : 100%;
+  background-color: #282c34;
+	border: none;
+	color: white;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}
+.topic-form{
+  display: flex;
+  height: 3rem;
+}

@@ -9,11 +9,13 @@ import {SignOut} from './Auth';
 function ChatRoom(props) {
 	
 	const dummy = useRef();
-	const messagesRef = firestore.collection('topics').doc(props.topicID).collection('messages');
+	const topicsRef = firestore.collection('topics').doc(props.topicID);
+	const [topicName,setTopicName] = useState();
+	topicsRef.get().then(snap => setTopicName(snap.get('name')));
+	const messagesRef = topicsRef.collection('messages');
 	const query = messagesRef.orderBy('createdAt').limit(25);
 	const [messages] = useCollectionData(query, { idField: 'id' });
 	const [formValue, setFormValue] = useState('');
-  
   
 	const sendMessage = async (e) => {
 	  e.preventDefault();
@@ -34,7 +36,8 @@ function ChatRoom(props) {
 	return (<>
 	<div className="App">
 		<header>
-			<h1>SCA</h1>
+			<h1>{topicName}</h1>
+			<h2>{auth.currentUser.displayName}</h2>
 			<SignOut />
 		</header>
 		<section>

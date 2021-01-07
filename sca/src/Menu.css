@@ -30,6 +30,7 @@
 	width: 70%;
 	margin: 1em;
 	transform: translateX(10%); 
+	padding: 15px 32px;
 }
 .myButton:hover {
 	/* background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);

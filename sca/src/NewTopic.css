@@ -1,3 +1,84 @@
-.topic-form{
-	
+
+.create-topic-form{
+	font: 95% Arial, Helvetica, sans-serif;
+	max-width: 70%;
+	margin: 10px auto;
+	padding: 16px;
+	background:#09011a;
+
+}
+.create-topic-form h1{
+	background: #282c34;
+	padding: 20px 0;
+	font-size: 140%;
+	font-weight: 300;
+	text-align: center;
+	color: #fff;
+	margin: -16px -16px 16px -16px;
+}
+
+.create-topic-form input[type="text"],
+.create-topic-form input[type="date"],
+.create-topic-form input[type="datetime"],
+.create-topic-form input[type="email"],
+.create-topic-form input[type="number"],
+.create-topic-form input[type="search"],
+.create-topic-form input[type="time"],
+.create-topic-form input[type="url"],
+.create-topic-form textarea,
+.create-topic-form select 
+{
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	background: #fff;
+	margin-bottom: 4%;
+	border: 1px solid #ccc;
+	padding: 3%;
+	color: #555;
+	font: 95% Arial, Helvetica, sans-serif;
+	height: 3rem;
+}
+.create-topic-form textarea{
+	height: 10rem;
+}
+.create-topic-form input[type="text"]:focus,
+.create-topic-form input[type="date"]:focus,
+.create-topic-form input[type="datetime"]:focus,
+.create-topic-form input[type="email"]:focus,
+.create-topic-form input[type="number"]:focus,
+.create-topic-form input[type="search"]:focus,
+.create-topic-form input[type="time"]:focus,
+.create-topic-form input[type="url"]:focus,
+.create-topic-form textarea:focus,
+.create-topic-form select:focus
+{
+	box-shadow: 0 0 5px black;
+	padding: 3%;
+	border: 1px solid #282c34;
+}
+
+.create-topic-form button[type="submit"],
+.create-topic-form input[type="button"]{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	width: 100%;
+	padding: 3%;
+	background: #282c34;
+	border-bottom: 2px solid #282c34;
+	border-top-style: none;
+	border-right-style: none;
+	border-left-style: none;	
+	color: #fff;
+}
+.create-topic-form button[type="submit"]:hover,
+.create-topic-form input[type="button"]:hover{
+	background: #2EBC99;
 }

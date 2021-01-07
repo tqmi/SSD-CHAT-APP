@@ -24,8 +24,9 @@ function App() {
   const adminRef = firestore.collection('admins');
   const [topic,setTopipc] = useState('test');
   const [mainPage,setMainPage] = useState(<HomePage switchTopic={switchTopic}/>);
-  const a = user && adminRef.where('uid','==',user.uid).get();
-  const admin = a ? true : false;
+  const [admin,setAdmin] = useState(false);
+  user && adminRef.where('uid','==',user.uid).get().then(snap => setAdmin(true));
+  
   
   function switchTopic(newTopicID) {
     setMainPage(<ChatRoom topicID = {newTopicID}/>);

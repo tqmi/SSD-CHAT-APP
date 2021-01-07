@@ -27,31 +27,35 @@ function TopicsList(props) {
     }
     
 
-    return (<>
-        <div className= "header">
+    return (
+    <div className="App">
+        <header>
+		    <h1>Topics</h1>			
+		</header>
+        <section>
+            <div className="allright">
 
-		      <h1>Topics</h1>			
-		    </div>
-        <div ClassName="allright">
+                <form onSubmit={searchTopic} className="topic-form">
 
-        <form onSubmit={searchTopic}>
+                    <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="Search" className="topic-search-bar"/>
+                    <button type="submit" className="topic-search-button">
+                        <svg width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
 
-            <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="Search" />
-
-
-            <button type="submit">SEARCH</button>
-
-
-        </form>
-            <div className="topicList">
-            {topics && topics.map(topic =>{ return (
-                <>
-                    <Topic key={topic.id} switchTopic={props.switchTopic} Topic={topic}/>
-                </>
-            )})}
+                </form> 
+                
+                <div className="topicList">
+                    {topics && topics.map(topic =>{ return (
+                        <>
+                            <Topic key={topic.id} switchTopic={props.switchTopic} Topic={topic}/>
+                        </>
+                    )})}
+                </div>
             </div>
-        </div>
-    </div>)
+        </section>
+    </div>);
 
 }
 
@@ -75,19 +79,28 @@ function Topic(props) {
     }
 
     return (<>
-    <div className="topicButton">
+    <div className="topicButtonGroup">
         <button className="topButton" onClick={()=>switchTopic(props.Topic.id)}>{props.Topic.name}</button>
 
         {(props.Topic.subscribers && props.Topic.subscribers.includes(uid)) ? 
                         
-            (<button className="topButton1" onClick={()=>unsubscribeToTopic(props.Topic.id)}> <img src="http://clipart-library.com/images/yikKedkjT.png"></img></button>)
+            (<button className="topButton subscribeButton" onClick={()=>unsubscribeToTopic(props.Topic.id)}>
+                <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" className='subscribed-icon'>
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+            </button>)
             
             : 
             
-            (<button className="topButton1" onClick={()=>subscribeToTopic(props.Topic.id)}><img src="http://clipart-library.com/img/2184482.png"></img></button>)
+            (<button className="topButton subscribeButton" onClick={()=>subscribeToTopic(props.Topic.id)}>
+                <svg width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16" className='unsubscribed-icon'>
+                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                </svg>
+            </button>)
         }
     </div>
     </>)
 }
 
 export default TopicsList;
+export {Topic};

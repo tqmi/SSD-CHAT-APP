@@ -1,47 +1,7 @@
-main {
-	padding: 10px;
-  overflow-y: scroll;
-  height: 100%;
-  display: flex;
-  margin: 0;
-	flex-direction: column;
-  }
-  
-  main::-webkit-scrollbar {
-  width: 0.25rem;
-  }
-
-  main::-webkit-scrollbar-track {
-    background: #1e1e24;
-    }
-
-  main::-webkit-scrollbar-thumb {
-    background: #6649b8;
-    } 
-
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #282c34;
-    }
-    
-    li {
-      float: center;
-      margin: 0;
-    }
-    
-    li a {
-      display:block;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      text-decoration: none ;
-    }
-    
-    li a:hover {
-      background-color: #111111;
-      width: 150px;
-      float: center;
-      margin-left: 0%;
-    }
+.topic-pres{
+  background-color: #282c34;
+  margin: 3px;
+}
+.topic-pres p{
+  color: white;
+}
