@@ -17,7 +17,7 @@ function HomePage(props) {
         props.switchTopic(topicID);
     }
 
-    return (<>
+    return (<div className="App">
         <header>
 		    <h1>HOME</h1>			
 		</header>
@@ -28,7 +28,7 @@ function HomePage(props) {
                 </>
             ))}
         </main>
-    </>)
+    </div>)
 }
 
 export default HomePage;

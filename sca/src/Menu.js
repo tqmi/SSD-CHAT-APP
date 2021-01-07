@@ -8,6 +8,7 @@ import { firebase, auth, firestore } from './firebase'
 
 function Menu(props) {
 
+
     return (<>
     
         <div className="header">
@@ -18,6 +19,7 @@ function Menu(props) {
         {props.options && props.options.map(opt=><button className="myButton" onClick={()=> opt.action()}>{opt.name}</button>)}
      
     </>);
+
 
 }
 

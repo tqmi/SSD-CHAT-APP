@@ -16,30 +16,42 @@ function TopicsList(props) {
 
     const searchTopic = async(e) => {
         e.preventDefault();
-        setQuery(topicsRef.where('name','==',searchValue));
+        console.log(searchValue.length);
+        if(searchValue.length == 0){
+            setQuery(topicsRef.orderBy('name'));
+        }
+        else{
+            setQuery(topicsRef.where('name','==',searchValue));
+        }
         setSearchValue('');
     }
     
+
     return (<>
-        <header>
+        <div className= "header">
+
 		      <h1>Topics</h1>			
-		    </header>
-        <div ClassName="topics">
+		    </div>
+        <div ClassName="allright">
 
         <form onSubmit={searchTopic}>
 
             <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="Search" />
 
-            <button type="submit" disabled={!searchValue}>SEARCH</button>
+
+            <button type="submit">SEARCH</button>
+
 
         </form>
+            <div className="topicList">
             {topics && topics.map(topic =>{ return (
                 <>
                     <Topic key={topic.id} switchTopic={props.switchTopic} Topic={topic}/>
                 </>
             )})}
+            </div>
         </div>
-    </>)
+    </div>)
 
 }
 
@@ -63,17 +75,18 @@ function Topic(props) {
     }
 
     return (<>
-        <button onClick={()=>switchTopic(props.Topic.id)}>{props.Topic.name}</button>
+    <div className="topicButton">
+        <button className="topButton" onClick={()=>switchTopic(props.Topic.id)}>{props.Topic.name}</button>
 
         {(props.Topic.subscribers && props.Topic.subscribers.includes(uid)) ? 
                         
-            (<button onClick={()=>unsubscribeToTopic(props.Topic.id)}>unsubscribe</button>)
+            (<button className="topButton1" onClick={()=>unsubscribeToTopic(props.Topic.id)}> <img src="http://clipart-library.com/images/yikKedkjT.png"></img></button>)
             
             : 
             
-            (<button onClick={()=>subscribeToTopic(props.Topic.id)}>subscribe</button>)
+            (<button className="topButton1" onClick={()=>subscribeToTopic(props.Topic.id)}><img src="http://clipart-library.com/img/2184482.png"></img></button>)
         }
-
+    </div>
     </>)
 }
 
