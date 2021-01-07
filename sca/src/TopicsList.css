@@ -1,4 +1,4 @@
-main {
+.topics {
 	padding: 10px;
   overflow-y: scroll;
   height: 100%;
@@ -7,15 +7,15 @@ main {
 	flex-direction: column;
   }
   
-  main::-webkit-scrollbar {
+  .topics::-webkit-scrollbar {
   width: 0.25rem;
   }
 
-  main::-webkit-scrollbar-track {
+  .topics::-webkit-scrollbar-track {
     background: #1e1e24;
     }
 
-  main::-webkit-scrollbar-thumb {
+  .topics::-webkit-scrollbar-thumb {
     background: #6649b8;
     } 
 
