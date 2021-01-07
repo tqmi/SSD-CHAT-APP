@@ -6,13 +6,16 @@ import { useCollectionData } from 'react-firebase-hooks/firestore';
 import { firebase, auth, firestore } from './firebase'
 
 
-function Menu() {
+function Menu(props) {
 
-    return (<>
-        <a href="#" class="myButton">HOME</a><br /><br />
-        <a href="#" class="myButton">Button 1</a><br/><br />
-        <a href="#" class="myButton">Button 2</a><br/><br />
-    </>);
+    return (
+    <div className='App'>
+        <header>
+		    <h1>Menu</h1>			
+		</header>
+        {props.options && props.options.map(opt=><button onClick={()=> opt.action()}>{opt.name}</button>)}
+    </div>
+    );
 
 }
 

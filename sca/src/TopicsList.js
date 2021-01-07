@@ -16,11 +16,17 @@ function TopicsList(props) {
 
     const searchTopic = async(e) => {
         e.preventDefault();
-        setQuery(topicsRef.where('name','==',searchValue));
+        console.log(searchValue.length);
+        if(searchValue.length == 0){
+            setQuery(topicsRef.orderBy('name'));
+        }
+        else{
+            setQuery(topicsRef.where('name','==',searchValue));
+        }
         setSearchValue('');
     }
     
-    return (<>
+    return (<div className='App'>
         <header>
 		      <h1>Topics</h1>			
 		    </header>
@@ -30,7 +36,7 @@ function TopicsList(props) {
 
             <input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="Search" />
 
-            <button type="submit" disabled={!searchValue}>SEARCH</button>
+            <button type="submit">SEARCH</button>
 
         </form>
             {topics && topics.map(topic =>{ return (
@@ -39,7 +45,7 @@ function TopicsList(props) {
                 </>
             )})}
         </div>
-    </>)
+    </div>)
 
 }
 
