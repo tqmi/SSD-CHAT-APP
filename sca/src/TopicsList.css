@@ -66,12 +66,12 @@
 
 .subscribed-icon{
   color: #f0ec08;
-  opacity: 100%;
+  opacity: 1.0;
 }
 
 .unsubscribed-icon{
   color : black;
-  opacity: 50%;
+  opacity: 0.5;
 }
 
 .topic-search-bar{
