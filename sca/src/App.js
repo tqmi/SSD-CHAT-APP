@@ -53,6 +53,7 @@ function App() {
   const MenuList = !admin ? basicMenu : basicMenu.concat( [{name:'Asked Topics',action:askedTopics} ,{name:'New Topic',action:addTopic}]);
 
   return (<>
+
     {user ? <Layout left={<Menu options={MenuList}/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>}/> : <SignIn/>} 
     </>
   );

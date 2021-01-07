@@ -1,23 +1,60 @@
-.myButton {
-	
-	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
-	background-color:#599bb3;
-	
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Times New Roman;
-	font-size:1.25rem;
-	font-weight:bold;
-	padding:1.1875rem 3rem;
-	text-decoration:none;
-	text-shadow:0rem 0.6875rem 1.75rem #3d768a;
+.header{
+	background-color: #181717;
+	height: 10vh;
+	min-height: 50px;
+	color: white;
+	width: 100%;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	z-index: 99;
+	padding: 10px;
+	box-sizing: border-box;
+  
+}
+.myButton {	
+	font-size: 1.23rem;
+	border-radius: 0.31rem;
+	border: solid 0rem #169c9c;
+	color: white;
+	background: url(https://cdn.pixabay.com/photo/2016/10/29/01/18/abstract-1779544__340.png) repeat 0 0;
+	box-shadow: 0rem 0.625rem 0.875rem -0.4375rem rgba(97, 97, 116, 0);
+	font-family: Georgia;
+	cursor: pointer;
+	text-align: center;
+	user-select: none;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	margin: 1em;
+	transform: translateX(10%); 
 }
 .myButton:hover {
-	background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
-	background-color:#408c99;
+	/* background:linear-gradient(to bottom, #408c99 5%, #599bb3 100%);
+	background-color:#408c99; */
+	background: linear-gradient(50deg, #1427d1 0%, #717682 100%);
 }
 .myButton:active {
-	position:relative;
-	top:0.0625rem;
+	/* position:relative;
+	top:0.0625rem; */
+	position: relative;
+	top: 0.0625rem;
 }
+.myButton-icon {
+	padding: 0.625rem 0.75rem;
+	border-right: 0.0625rem solid rgba(255, 255, 255, 0.16);
+	box-shadow: rgba(0, 0, 0, 0.14) -0.0625rem 0rem 0rem inset;
+}
+.myButton-icon svg {
+	vertical-align: middle;
+}
+.myButton-text {
+	padding: 0.625rem 0.75rem;
+}
+.myButton > span {
+	display: block;
+}
+
+
