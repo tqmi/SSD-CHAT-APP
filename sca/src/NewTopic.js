@@ -17,9 +17,9 @@ function NewTopic(props) {
 
     const createNewTopic = async(e) =>{
         e.preventDefault();
-
+        const { uid } = auth.currentUser;
         const topicsRef = firestore.collection('topics');
-        topicsRef.add({name:name,description:desc});
+        topicsRef.add({name:name,description:desc,createdAt:firebase.firestore.FieldValue.serverTimestamp(),createdBy:uid});
 
         setName('');
         setDesc('');
