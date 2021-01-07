@@ -1,4 +1,19 @@
-.topics {
+.header {
+  background-color: #181717;
+  height: 10vh;
+  min-height: 50px;
+  color: white;
+  width: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 99;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.allright {
 	padding: 10px;
   overflow-y: scroll;
   height: 100%;
@@ -6,42 +21,53 @@
   margin: 0;
 	flex-direction: column;
   }
+
+  .topicList {
+    padding: 5px;
+    overflow-y: scroll;
+    /* height: 100%; */
+    display: flex;
+    margin: 0;
+	  flex-direction: column;
+  }
   
-  .topics::-webkit-scrollbar {
+  /* .topicList::-webkit-scrollbar {
   width: 0.25rem;
   }
 
-  .topics::-webkit-scrollbar-track {
+  .topicList::-webkit-scrollbar-track {
     background: #1e1e24;
     }
 
-  .topics::-webkit-scrollbar-thumb {
+  .topicList::-webkit-scrollbar-thumb {
     background: #6649b8;
-    } 
+    }  */
 
-    ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      background-color: #282c34;
+    form {
+      position: relative;
+      width: 100%;
+      height: 10%;
+      background: var(--color-brand);
+      border-radius: var(--rad);
     }
-    
-    li {
-      float: center;
-      margin: 0;
+
+
+    .topButton {
+      position: relative;
+      padding: 10px;
+      width: 80%;
     }
-    
-    li a {
-      display:block;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      text-decoration: none ;
+
+    .topButton1 {
+      position: relative;
+      padding: 10px;
+      width: 20%;
+      align-content: center;
+      
     }
-    
-    li a:hover {
-      background-color: #111111;
-      width: 150px;
-      float: center;
-      margin-left: 0%;
+
+    img {
+      position: block;
+      height: 110%;
+      width: 110%;
     }
