@@ -12,6 +12,7 @@ import ChatRoom from './ChatRoom';
 import Menu from './Menu';
 import TopicsList from './TopicsList';
 import HomePage from './HomePage';
+import NewTopic from './NewTopic'
 
 
 
@@ -29,7 +30,7 @@ function App() {
 
   const addTopic = async() => {
     // e.preventDefault();
-    await firestore.collection('topics').add({name:"testADD"});
+    setMainPage(<NewTopic/>);
   }
 
   const goHome = () => {
@@ -37,7 +38,7 @@ function App() {
   }
 
   return (<>
-    {user ? <Layout left={<Menu/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>} left={<button onClick={goHome}>Home</button>}/> : <SignIn/>} 
+    {user ? <Layout left={<Menu options={[{name:'Home',action:goHome},{name:'new topic',action:addTopic}]}/>} center={mainPage} right={<TopicsList switchTopic={switchTopic}/>}/> : <SignIn/>} 
     </>
   );
 }

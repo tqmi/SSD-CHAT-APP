@@ -20,7 +20,7 @@ function TopicsList(props) {
         setSearchValue('');
     }
     
-    return (<>
+    return (<div className='App'>
         <header>
 		      <h1>Topics</h1>			
 		    </header>
@@ -39,7 +39,7 @@ function TopicsList(props) {
                 </>
             )})}
         </div>
-    </>)
+    </div>)
 
 }
 
