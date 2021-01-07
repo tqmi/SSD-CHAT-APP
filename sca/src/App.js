@@ -25,7 +25,7 @@ function App() {
   const [topic,setTopipc] = useState('test');
   const [mainPage,setMainPage] = useState(<HomePage switchTopic={switchTopic}/>);
   const [admin,setAdmin] = useState(false);
-  user && adminRef.where('uid','==',user.uid).get().then(snap => setAdmin(true));
+  user && adminRef.where('uid','==',user.uid).get().then(snap => snap.empty || setAdmin(true));
   
   
   function switchTopic(newTopicID) {
