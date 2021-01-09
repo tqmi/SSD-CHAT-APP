@@ -13,7 +13,7 @@ function ChatRoom(props) {
 	const [topicName,setTopicName] = useState();
 	topicsRef.get().then(snap => setTopicName(snap.get('name')));
 	const messagesRef = topicsRef.collection('messages');
-	const query = messagesRef.orderBy('createdAt').limit(25);
+	const query = messagesRef.orderBy('createdAt','desc').limit(25);
 	const [messages] = useCollectionData(query, { idField: 'id' });
 	const [formValue, setFormValue] = useState('');
   
@@ -43,7 +43,11 @@ function ChatRoom(props) {
 		<section>
 			<main>
 	
-				{messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+				{messages && messages.sort((a,b) => {
+					if (a.createdAt < b.createdAt) return -1;
+					if (a.createdAt > b.createdAt) return 1;
+					return 0
+				 }).map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
 				<span ref={dummy}></span>
 
